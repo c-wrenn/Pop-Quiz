@@ -3,10 +3,10 @@ var startButton = document.querySelector("#startquiz");
 //var question1 = document.querySelector("box-question");
 var question1 = document.getElementById('countdown');
 var number1 = document.createElement("div"); 
+var boxQuestionEl = document.querySelector(".box-question");
 
-
-startButton.addEventListener("click", function() {
-    startButton.preventDefault();
+startButton.addEventListener("click", function(event) {
+    event.preventDefault();
 var ques1 = document.createElement("ol");
 
 var li1 = document.createElement("li");
@@ -35,18 +35,25 @@ li1.setAttribute("style", "padding: 5px; margin-left:35px; background:#555");
 li2.setAttribute("style", "padding: 5px; margin-left:35px; background:#ccc");
 li3.setAttribute("style", "padding: 5px; margin-left:35px; background:#555");
 li4.setAttribute("style", "padding: 5px; margin-left:35px; background:#ccc");
+
+
+//displays the answer choices
+boxQuestionEl.append(ques1);
+//displays the imer countdown by appending to a html element.
+boxQuestionEl.append(ques1)
+setTimer();
 })
 
 
 var secondsLeft = 30;
-var timeEl = document.querySelector(".timer");
+var timeEl = document.querySelector("#timer");
 var mainEl = document.getElementById("main");
 
 //timer function
 function setTimer() {
 var timeInterval = setInterval(function() {
     secondsLeft--;
-    timeEl.textContent = "You currently have" + secondsLeft + "left to chose an answer.";
+    timeEl.textContent =  secondsLeft + " seconds remaining.";
     if(secondsLeft === 0) {
         clearInterval(timeInterval);
 
@@ -67,3 +74,4 @@ function outofTime(){
 //setTimeout(() {}, 30000);
 
 
+//we need a carosel box that uses a click eventlistener to go the next image to 
