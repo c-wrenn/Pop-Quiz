@@ -1,46 +1,72 @@
 //var timer = 0;
 var startButton = document.querySelector("#startquiz");
+var questionsContainer = document.getElementById('questions-container');
 //var question1 = document.querySelector("box-question");
 var question1 = document.getElementById('countdown');
 var number1 = document.createElement("div"); 
 var boxQuestionEl = document.querySelector(".box-question");
+var index = 0;
+//Selects elements for questions and options
+//const questions_options= document.querySelector("questions-container");
+//Selects elements for the quiz results after quiz is completed
+//const quiz_results=document.querySelector(".quiz_results");
+//const quit_btn= document.querySelector(".reset-btn .quit");
+//const reset_btn= quiz_done.querySelector(".buttons .reset"); 
 
 startButton.addEventListener("click", function(event) {
     event.preventDefault();
-var ques1 = document.createElement("ol");
+    //adds hidden class to start button
+startButton.setAttribute("class", "hidden" );
+questionsContainer.removeAttribute("class");
+// startButton.onclick = ()=>{
+    //adds
+// questions_options.classList.add("")
+// }
 
-var li1 = document.createElement("li");
-var li2 = document.createElement("li");
-var li3 = document.createElement("li");
-var li4 = document.createElement("li");
+// we'll have an array of objects.
+// each object is going to have a question and an array of answers
+var questions = [
+    {
+        question: "How many fingers am I holding up?",
+        answers: ["one", "two", "three", "four"]
+    },
+    {
+        question: "What is your favorite pizza?",
+        answers: ["one", "two", "three", "four"]
+    },
+    {
+        question: "How many times should you shower a week?",
+        answers: ["one", "two", "three", "four"]
+    },
+    {
+        question: "How many hours will it take?",
+        answers: ["five", "ten", "seven", "four"]
+    },
+    {
+        question: "How many fingers am I holding up?",
+        answers: ["one", "two", "three", "four"]
+    }
+];
 
+// as a person clicks on an answer, it will increment our index
+// remove the current question and answer from the dom
+// and replace it with the next question and answers (using our index to keep track)
+function quesCount() {
+//var ques = questions{question};
+//var answerchoices = questions {answers};
 
-number1.textContent ="this is question1";
+    //document.body.appendChild();
+    console.log(questions[0]);
+    index++
 
-number1.appendChild(ques1);
-number1.setAttribute("style", "font-size:20px;");
-ques1.setAttribute("style", "background-color: #333333;  padding: 20px; color:white")
+    
+}
 
-ques1.appendChild(li1);
-ques1.appendChild(li2);
-ques1.appendChild(li3);
-ques1.appendChild(li4);
-
-li1.textContent = "Tacos and magaritas";
-li2.textContent = "Pizza";
-li3.textContent = "MacandCheese";
-li4.textContent = "Waffles and Syrup";
-
-li1.setAttribute("style", "padding: 5px; margin-left:35px; background:#555");
-li2.setAttribute("style", "padding: 5px; margin-left:35px; background:#ccc");
-li3.setAttribute("style", "padding: 5px; margin-left:35px; background:#555");
-li4.setAttribute("style", "padding: 5px; margin-left:35px; background:#ccc");
-
-
-//displays the answer choices
-boxQuestionEl.append(ques1);
-//displays the imer countdown by appending to a html element.
-boxQuestionEl.append(ques1)
+// If Quit button is clicked
+//quit_btn.onclick = ()=>{
+// quiz_results.classList.remove("activequestion")   //hide the quiz result box
+//}
+quesCount();
 setTimer();
 })
 
@@ -67,7 +93,7 @@ function outofTime(){
     timeEl.textcontent = " ";
     var timeoutBox = document.createElement("box");
 
-    timeoutBox.setAttribute("style", "font-size:20px; font-color:black;")
+    timeoutBox.setAttribute("style", "font-size:20px; font-color:black; border-radius:5px ;")
   
   mainEl.appendChild(timeoutBox);
 }

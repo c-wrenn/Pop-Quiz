@@ -1,28 +1,88 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <title>Pop Quiz</title>
-
+    
 </head>
 <h1>Pop Quiz!</h1>
 <h2 id="countdown"></h2>
+
 <body>
-    
+
     <section class="box box-question">
         <div class="box box-timer" id="timer"></div>
         <div class="high-scores">View High Scores</div>
         <div class="box box-startbutton">
             <button id="startquiz">Start Quiz</button>
+
+            <div class="hidden" id="questions-container">
+                <div class="q-title">Question 1 of 5</div>
+                <div class="options-list">
+                    <div class="option">
+                        <span>anser choice a</span>
+                    </div>
+                    <div class="option">
+                        <span>answerb</span>
+                    </div>
+                    <div class="option">
+                        <span>answerc</span>
+                    </div>
+                    <div class="option">
+                        <span>answer d</span>
+                    </div>
+                </div>
+                <footer>
+                    <div class="total_que">
+                        <span>
+                            <p>1</p>
+                            <p>of</p>
+                            <p>5</p>
+                        </span>
+                    </div>
+                </footer>
+
+
+
+            </div>
+
+            <div class="quiz-results hidden" >
+                <div class="icon-r">
+                    <i class="fa-light fa-crown">crown</i>
+                </div>
+                    <div class="quiz-done">Congratulations! You have completed the Quiz!</div>
+        
+                <div class="score-results">
+                    <span>
+                        <p>You got</p>
+                        <p>1</p> 
+                        <p> out of </p>
+                         <p>5</p> 
+                         <p>correct</p>
+                    </span>
+                </div>
+
+                <div class="reset-btn">
+                    <button class="reset-quiz">Play Again</button>
+                    <button class="quit">End Quiz</button>
+                </div>
+
         </div>
-       
-<div id="main"></div>
-       </div>
-            <p>Questions appear here</p>
-       
+
+
+        </div>
+        <div id="main"></div>
+        </div>
+        
+
     </section>
+
     
+
 </body>
 <script src="./script.js"></script>
+
 </html>
