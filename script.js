@@ -54,7 +54,9 @@ var questions = [
 function quesCount() {
 //var ques = questions{question};
 //var answerchoices = questions {answers};
-
+var ques1= document.querySelector("options-list")
+//var ques1= document.querySelector("#questions-container");
+ques1.textContent= questions[0] + "this is a question";
     //document.body.appendChild();
     console.log(questions[0]);
     index++
