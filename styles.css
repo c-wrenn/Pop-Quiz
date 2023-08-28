@@ -70,7 +70,7 @@ transition: all 0.3s ease;
     display: flex;
     align-items: center;
     padding: 0 35px;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 600;
 }
 #questions-container .options-list {
@@ -153,6 +153,13 @@ width: 100px;
     display:none;
 }
 
+.hidden_Correct {
+    display: none;
+}
+
+.hidden_Wrong {
+    display: none;
+}
 /*Styles the crown icon*/
 
 .quiz-results .quiz-done  {

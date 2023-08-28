@@ -6,25 +6,18 @@ var question1 = document.getElementById('countdown');
 var number1 = document.createElement("div"); 
 var boxQuestionEl = document.querySelector(".box-question");
 var index = 0;
-//Selects elements for questions and options
-//const questions_options= document.querySelector("questions-container");
-//Selects elements for the quiz results after quiz is completed
-//const quiz_results=document.querySelector(".quiz_results");
-//const quit_btn= document.querySelector(".reset-btn .quit");
-//const reset_btn= quiz_done.querySelector(".buttons .reset"); 
 
-startButton.addEventListener("click", function(event) {
-    event.preventDefault();
-    //adds hidden class to start button
-startButton.setAttribute("class", "hidden" );
-questionsContainer.removeAttribute("class");
-// startButton.onclick = ()=>{
-    //adds
-// questions_options.classList.add("")
-// }
+var correct = document.querySelector("#correct_answer");
+var wrong = document.querySelector("#incorrect_answer");
 
-// we'll have an array of objects.
-// each object is going to have a question and an array of answers
+//var questionText;
+var questionText = document.querySelector(".q-title");
+//Selects answer choices
+var answer_aText = document.querySelector("#answer-a");
+var answer_bText = document.querySelector("#answer-b");
+var answer_cText = document.querySelector("#answer-c");
+var answer_dText = document.querySelector("#answer-d");
+//questions array holds the quiz questions.
 var questions = [
     {
         question: "How many fingers am I holding up?",
@@ -32,7 +25,7 @@ var questions = [
     },
     {
         question: "What is your favorite pizza?",
-        answers: ["one", "two", "three", "four"]
+        answers: ["ccc", "ffff", "toast", "four"]
     },
     {
         question: "How many times should you shower a week?",
@@ -48,28 +41,82 @@ var questions = [
     }
 ];
 
+
+
+function quesCount() {
+      //Makes the test text content the quiz question and answers in my array 
+questionText.textContent = questions[index].question;
+answer_aText.textContent = questions[index].answers[0];
+answer_bText.textContent = questions[index].answers[1];
+answer_cText.textContent = questions[index].answers[2];
+answer_dText.textContent = questions[index].answers[3];
+
+//Create click event for answer choices
+//When an answer choice is clicked, the timer will stop and the next question
+// is displayed, by reading through our questions array.
+//Once the next question is displayed we want to start the timer again by calling the setTimer function.
+
+//Adds clcik event to answer choices
+
+answer_aText.addEventListener("click", function(event) {
+    event.preventDefault();
+   ques1correct();
+})
+answer_bText.addEventListener("click", function(event) {
+    event.preventDefault();
+   ques1correct();
+})
+answer_cText.addEventListener("click", function(event) {
+    event.preventDefault();
+   ques1correct();
+})
+answer_dText.addEventListener("click", function(event) {
+    event.preventDefault();
+    //stops timer
+    //We might want to not use the outoftime function and instead just call the starttimer function again.
+   // outofTime();
+   ques1correct();
+})
+
+
+
+index++;
+
+    }
+    //this function will contain an if statement if the correct answer is clicked
+function ques1correct() {
+answer_aText = true;
+answer_bText = false;
+answer_cText = false;
+answer_dText = false;
+
+    if(answer_aText.clicked == true) {
+
+        //hides Wrong! to display correct!
+        wrong.setAttribute("class", "hidden_Wrong" );
+     
+    } else { (answer_bText.clicked == false || answer_cText.clicked == false || answer_dText.clicked == false)
+        //hides Correct! to display wrong!
+        correct.setAttribute("class", "hidden_Correct" );
+    };
+};
+
+startButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    //adds hidden class to start button
+startButton.setAttribute("class", "hidden" );
+questionsContainer.removeAttribute("class");
+
+quesCount();
+setTimer();
+
 // as a person clicks on an answer, it will increment our index
 // remove the current question and answer from the dom
 // and replace it with the next question and answers (using our index to keep track)
-function quesCount() {
-//var ques = questions{question};
-//var answerchoices = questions {answers};
-var ques1= document.querySelector("options-list")
-//var ques1= document.querySelector("#questions-container");
-ques1.textContent= questions[0] + "this is a question";
-    //document.body.appendChild();
-    console.log(questions[0]);
-    index++
 
-    
-}
 
-// If Quit button is clicked
-//quit_btn.onclick = ()=>{
-// quiz_results.classList.remove("activequestion")   //hide the quiz result box
-//}
-quesCount();
-setTimer();
+   //hide the quiz result box
+
 })
 
 
@@ -102,4 +149,3 @@ function outofTime(){
 //setTimeout(() {}, 30000);
 
 
-//we need a carosel box that uses a click eventlistener to go the next image to 
