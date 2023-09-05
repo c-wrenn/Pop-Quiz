@@ -59,6 +59,30 @@ function displayQuestion() {
     correctMessage.classList.add("hidden");
     wrongMessage.classList.add("hidden");
   
+    console.log(correctMessage);
+    console.log(wrongMessage);
+    //Adds click event to answer choices
+answer_aText.addEventListener("click", function(event) {
+    event.preventDefault();
+    checkAnswer(event);
+   
+})
+answer_bText.addEventListener("click", function(event) {
+    event.preventDefault();
+    checkAnswer(event);
+    
+})
+answer_cText.addEventListener("click", function(event) {
+    event.preventDefault();
+    checkAnswer(event);
+    
+})
+answer_dText.addEventListener("click", function(event) {
+    event.preventDefault();
+    checkAnswer(event);
+   
+})
+
     //Makes the test text content, the quiz question and answers in my array 
 questionText.textContent = questions[index].question;
 answer_aText.textContent = questions[index].answers[0];
@@ -76,49 +100,43 @@ function startTimer() {
         
         if(secondsLeft === 0) {
         clearInterval(timeInterval);
-        
+        //questionsLoop();
             //outofTime();
         }
     //every second the timer loses a second as time descreases
     },1000);
     }
-function checkAnswer() {
+function checkAnswer(event) {
+    console.log("checkAnswer")
         //Stop timer
-        //clearInterval(timeInterval);
-
-//Adds click event to answer choices
-answer_aText.addEventListener("click", function(event) {
-    event.preventDefault();
-    checkAnswer();
-})
-answer_bText.addEventListener("click", function(event) {
-    event.preventDefault();
-    checkAnswer();
-})
-answer_cText.addEventListener("click", function(event) {
-    event.preventDefault();
-    checkAnswer();
-})
-answer_dText.addEventListener("click", function(event) {
-    event.preventDefault();
-    checkAnswer();
-})
-
-
-
+        
+//console.log(event,"event")
+console.log("-------")
+console.log(event.target.textContent,"event.target")
+console.log(questions[index].answers[0])
         //Check if the correct answer is chosen
-    var selectedAnswer= document.querySelector(".option");
+   // var selectedAnswer= document.querySelector(".option");
         // Check if the selected answer is correct
-    if (selectedAnswer === questions[index].answers[0].clicked) {
+    if (event.target.textContent === questions[index].answers[0]) {
         // Correct answer
+
         correctMessage.classList.remove("hidden");
         wrongMessage.classList.add("hidden");
+        questionsLoop();
+       
     } else {
+        console.log("incorrect");
         // Incorrect answer
-        correctMessage.classList.add("hidden");
+        console.log(correctMessage);
+    console.log(wrongMessage, 'Wrong message')
+       
         wrongMessage.classList.remove("hidden");
-    }}
+        correctMessage.classList.add("hidden");
+ //index++
+questionsLoop();
+}}    
 
+//setTimeout();
 //Displays question box once startbutton is clicked
 
 
@@ -129,19 +147,11 @@ answer_dText.addEventListener("click", function(event) {
 
 //index++;
     
-
-
-
-
-
-
-
-
-    
     // Move to the next question after a brief delay
     setTimeout(function() {
         // Increment the question index
-        //index++;
+       // index++;
+     
         // Reset the timer and question display
         //secondsLeft = 30;
         timeEl.textContent = " ";
@@ -162,3 +172,11 @@ answer_dText.addEventListener("click", function(event) {
   
   mainEl.appendChild(timeoutBox);
 //}
+//create a loop to read through array to move to the next question.
+function questionsLoop() {
+    for (index = 0; index < questions.length; index++) {
+       // const element = questions[index];
+        
+            console.log("Array is attempting to iterate!");
+    }
+}
