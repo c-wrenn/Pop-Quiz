@@ -22,24 +22,24 @@ var answer_dText = document.querySelector("#answer-d");
 var index = 0;
 var questions = [
     {
-        question: "How many fingers am I holding up?",
-        answers: ["one", "two", "three", "four"]
+        question: "What is Javascript?",
+        answers: ["A programming language", "A city in Europe", "A store", "A medical tool"]
     },
     {
-        question: "What is your favorite pizza?",
-        answers: ["ccc", "ffff", "toast", "four"]
+        question: "Inside which HTML element do we put the JavaScript?",
+        answers: ["<script>", "<javascript>", "<js>", "<scripting>"]
     },
     {
-        question: "How many times should you shower a week?",
-        answers: ["one", "two", "three", "four"]
+        question: "The external JavaScript file must contain the <script> tag.",
+        answers: ["True", "False", "Maybe", "Sometimes"]
     },
     {
-        question: "How many hours will it take?",
-        answers: ["five", "ten", "seven", "four"]
+        question: "How do you write Hello World in an alert box?",
+        answers: ["alert", "msg", "alertBox", "msgBox"]
     },
     {
-        question: "How many fingers am I holding up?",
-        answers: ["one", "two", "three", "four"]
+        question: "What does MVC stand for?",
+        answers: ["Model-View-Controllers", "Minnesota-Voucher-Camp", "Marble-Velocity-Curve", "May-Viking-Cup"]
     }
 ]; //end of global variables
 
