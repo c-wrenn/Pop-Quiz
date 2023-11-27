@@ -174,9 +174,15 @@ questionsLoop();
 //}
 //create a loop to read through array to move to the next question.
 function questionsLoop() {
-    for (index = 0; index < questions.length; index++) {
-       // const element = questions[index];
+    index++
+    questionText.textContent = questions[index].question;
+    answer_aText.textContent = questions[index].answers[0];
+    answer_bText.textContent = questions[index].answers[1];
+    answer_cText.textContent = questions[index].answers[2];
+    answer_dText.textContent = questions[index].answers[3];
+    // for (index = 0; index < questions.length; index++) {
+    //    // const element = questions[index];
         
-            console.log("Array is attempting to iterate!");
-    }
+    //         console.log("Array is attempting to iterate!");
+    // }
 }
